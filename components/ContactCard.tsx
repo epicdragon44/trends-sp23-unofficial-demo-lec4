@@ -19,6 +19,7 @@ const ContactCard = ({ name, nickName, phone }: ContactCardProps) => {
     // Memoize preferred title: nickName if provided, name otherwise.
     // Only update the memoized value if the props change.
     const title = useMemo(() => {
+        // Check that a) a nickname was provided, and b) it is not an empty string.
         if (nickName !== undefined && nickName !== "") {
             return nickName;
         } else {

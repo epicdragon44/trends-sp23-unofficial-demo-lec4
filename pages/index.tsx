@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Home() {
+    // An array of contacts to render initially! Can be modified later.
     const initialContacts: ContactCardProps[] = [
         {
             name: "Daniel Wei",
@@ -17,14 +18,17 @@ export default function Home() {
     ];
 
     // Maintain a stateful array of the contacts we want to render!
+    // Initialized to the initial contacts.
     const [contacts, setContacts] =
         useState<ContactCardProps[]>(initialContacts);
 
     // Whenever our state updates, console log the new state!
+    // This is a great way to debug state changes!
     useEffect(() => {
         console.log(contacts);
     }, [contacts]);
 
+    // Maintain state for the user's input for Name, Nickname, and Phone.
     const [formName, setFormName] = useState("");
     const [formNickName, setFormNickName] = useState("");
     const [formPhone, setFormPhone] = useState("");
